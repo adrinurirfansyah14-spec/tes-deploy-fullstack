@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Contoh Fullstack Vercel</title>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+    <h1>Aplikasi Full-Stack Pertamaku di Vercel</h1>
+    <p id="pesan-backend">Mengambil data dari backend...</p>
+
+    <script>
+        // Mengambil data dari backend serverless Vercel kita
+        fetch('/api/halo')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('pesan-backend').innerText = data.pesan;
+            })
+            .catch(error => {
+                document.getElementById('pesan-backend').innerText = "Gagal terhubung ke backend!";
+            });
+    </script>
+</body>
+</html>
